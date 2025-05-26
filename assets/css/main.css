@@ -529,10 +529,9 @@ h6 {
 } */
 /* Dropdown layout */
 .service-dropdown {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 48px;
-  padding: 32px 48px;
+  padding: 32px 48px !important;
   list-style: none;
   background: var(--nav-dropdown-background-color, #fff);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -545,7 +544,10 @@ h6 {
   transition: 0.3s ease;
   z-index: 99;
   border-radius: 12px;
+  box-sizing: border-box;
   max-width: 95vw;
+  overflow-x: auto;
+  align-items: flex-start !important;
 }
 
 .listing-dropdown:hover .service-dropdown {
@@ -554,30 +556,43 @@ h6 {
 }
 
 .service-dropdown > li {
+  min-width: 180px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
-.service-dropdown > li h3 {
+.dropdown-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.column-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.column-wrapper h3 {
   font-size: 18px;
   font-weight: 600;
   color: #003366;
   border-bottom: 2px solid #007bff;
   padding-bottom: 6px;
   margin: 0 0 12px 0;
-  height: 28px; /* this ensures all h3 take same vertical space */
 }
 
-.service-dropdown > li ul {
-  list-style: none;
-  margin: 0;
+.column-wrapper ul {
   padding: 0;
+  margin: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.service-dropdown > li ul li a {
+.column-wrapper ul li a {
   font-size: 15px;
   color: #333;
   text-decoration: none;
@@ -585,9 +600,10 @@ h6 {
   transition: 0.2s;
 }
 
-.service-dropdown > li ul li a:hover {
+.column-wrapper ul li a:hover {
   color: #007bff;
 }
+
 
 /*--------------------------------------------------------------
 # Global Footer
