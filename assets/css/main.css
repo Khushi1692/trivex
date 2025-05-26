@@ -454,7 +454,7 @@ h6 {
 }
 
 /* Listing Dropdown - Desktop */
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .navmenu .listing-dropdown {
     position: static;
   }
@@ -474,6 +474,7 @@ h6 {
     transition: 0.3s;
     border-radius: 4px;
     z-index: 99;
+    
   }
 
   .navmenu .listing-dropdown ul li {
@@ -500,10 +501,11 @@ h6 {
     top: 100%;
     visibility: visible;
   }
-}
+} */
+
 
 /* Listing Dropdown - Mobile */
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
   .navmenu .listing-dropdown ul {
     position: static;
     display: none;
@@ -524,6 +526,67 @@ h6 {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
+} */
+/* Dropdown layout */
+.service-dropdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  padding: 32px 48px;
+  list-style: none;
+  background: var(--nav-dropdown-background-color, #fff);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 99;
+  border-radius: 12px;
+  max-width: 95vw;
+}
+
+.listing-dropdown:hover .service-dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+
+.service-dropdown > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-dropdown > li h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #003366;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 6px;
+  margin: 0 0 12px 0;
+  height: 28px; /* this ensures all h3 take same vertical space */
+}
+
+.service-dropdown > li ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-dropdown > li ul li a {
+  font-size: 15px;
+  color: #333;
+  text-decoration: none;
+  padding: 3px 0;
+  transition: 0.2s;
+}
+
+.service-dropdown > li ul li a:hover {
+  color: #007bff;
 }
 
 /*--------------------------------------------------------------
@@ -1898,7 +1961,7 @@ section,
 /*--------------------------------------------------------------
 # Comment Form Section
 --------------------------------------------------------------*/
-.comment-form {
+/* .comment-form {
   padding-top: 10px;
 }
 
@@ -1974,7 +2037,7 @@ section,
 .comment-form form .btn-primary:hover {
   color: var(--contrast-color);
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
+} */
 
 /*--------------------------------------------------------------
 # Widgets
@@ -2151,3 +2214,201 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+
+/* service  */
+.design-section {
+  padding: 20px 20px;
+  max-width: 1100px;
+  margin: auto;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.design-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.design-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.design-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.design-section .animation,
+.design-section .image {
+  flex: 1 1 300px;
+}
+
+.design-section lottie-player,
+.design-section img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.design-section:nth-of-type(even) {
+  flex-direction: row-reverse;
+  background: #f0f4ff;
+  border-radius: 20px;
+}
+.pricing-box {
+  background: #fff;
+  border: 2px solid #ececec;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  max-width: 350px;
+}
+
+.pricing-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.pricing-box h3 span {
+  color: #7873f5;
+  font-weight: 600;
+}
+
+.pricing-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+
+.pricing-box ul li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.pricing-box ul li i {
+  color: #7873f5;
+  margin-right: 8px;
+}
+
+.heading-with-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  gap: 16px;
+  margin: 30px;
+}
+
+.heading-with-button h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.btn-pricing {
+  display: inline-block;
+  background: #7873f5;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  white-space: nowrap; /* prevents line-break inside button */
+}
+
+.btn-pricing:hover {
+  background: #5c5bd3;
+}
+
+
+.nav-gradient {
+  height: 4px;
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  width: 100%;
+}
+
+.service {
+  margin-top: 80px;
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.service-subtitle {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  color: #000;
+}
+
+.service-description {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.btn.primary:hover {
+  background-color: #333;
+}
+
+.btn.secondary {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.btn.secondary:hover {
+  border-color: #000;
+}
+
+
+
