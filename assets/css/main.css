@@ -2241,9 +2241,9 @@ section,
   margin-bottom: 20px;
 }
 
-.service-title {
-  font-size: 50px;
-  font-weight: 800;
+.service-sub-title {
+  /* font-size: 30px; */
+  /* font-weight: 800; */
   line-height: 1.2;
   margin: 0 0 20px;
   color: #000;
@@ -2294,5 +2294,61 @@ section,
   border-color: #000;
 }
 
+.service-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.service-card:hover {
+  transform: scale(1.05);
+}
 
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+ 
+}
+
+.service-title {
+  /* font-size: 60px;
+  font-weight: 600; */
+   font-size: 40px; 
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.service-price {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #343a40;
+}
+
+.service-desc {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.service-card .btn {
+  border: 2px solid #7873f5;       /* Blue border */
+  color: #7873f5;                  /* Text color matches border */
+  border-radius: 20px;
+  padding: 8px 20px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 500;
+}
+
+.service-card .btn:hover {
+  background-color: #7873f5;       /* Fill with blue on hover */
+  color: #fff;                     /* White text on hover */
+}
