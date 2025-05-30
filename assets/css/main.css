@@ -1707,6 +1707,23 @@ section,
   padding: 0;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
+/* Default layout: image left, text right */
+.portfolio-details .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Even-numbered sections: image on right */
+.portfolio-details:nth-of-type(even) .row {
+  flex-direction: row-reverse;
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .portfolio-details .row {
+    flex-direction: column !important;
+  }
+}
 
 /*--------------------------------------------------------------
 # Service Details Section
