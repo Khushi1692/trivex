@@ -1,41 +1,43 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+// Load Composer's autoloader if you're using Composer
+// require 'vendor/autoload.php';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// Or include PHPMailer manually
+require 'mailer/PHPMailer.php';
+require 'mailer/SMTP.php';
+require 'mailer/Exception.php';
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+$mail = new PHPMailer(true);
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'smileme1692@gmail.com'; // Your Gmail address
+    $mail->Password   = 'Khushi@1692'; // Gmail App Password (not your regular password)
+    $mail->SMTPSecure = 'tls';
+    $mail->Port       = 587;
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+    // Recipients
+    $mail->setFrom($_POST['email'], $_POST['name']);
+    $mail->addAddress('smileme1692@gmail.com', 'Your Name');
 
-  echo $contact->send();
-?>
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = $_POST['subject'];
+    $mail->Body    = "
+        <h3>New Message from Contact Form</h3>
+        <p><strong>Name:</strong> " . htmlspecialchars($_POST['name']) . "</p>
+        <p><strong>Email:</strong> " . htmlspecialchars($_POST['email']) . "</p>
+        <p><strong>Message:</strong><br>" . nl2br(htmlspecialchars($_POST['message'])) . "</p>
+    ";
+
+    $mail->send();
+    echo 'Your message has been sent. Thank you!';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}

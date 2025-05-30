@@ -208,3 +208,32 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+
+ function sendMail(event) {
+    event.preventDefault(); // Stop default form submit
+
+    // Hide all messages first
+    document.querySelector(".loading").style.display = "block";
+    document.querySelector(".sent-message").style.display = "none";
+    document.querySelector(".error-message").style.display = "none";
+
+    const params = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_xvq8ogg", "template_ova583j", params)
+      .then(function(response) {
+        document.querySelector(".loading").style.display = "none";
+        document.querySelector(".sent-message").style.display = "block";
+        document.querySelector("form").reset();
+      }, function(error) {
+        document.querySelector(".loading").style.display = "none";
+        document.querySelector(".error-message").innerText = "Failed to send email: " + error.text;
+        document.querySelector(".error-message").style.display = "block";
+      });
+  }
