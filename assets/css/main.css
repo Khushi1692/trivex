@@ -2399,9 +2399,9 @@ section,
   background-color: #7873f5;       /* Fill with blue on hover */
   color: #fff;                     /* White text on hover */
 }
-
 [data-aos] {
   opacity: 1 !important;
   visibility: visible !important;
-  transform: none !important;  /* This is the key */
+  transform: none !important;
+  transition: none !important;
 }
