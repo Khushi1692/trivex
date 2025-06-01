@@ -249,3 +249,155 @@ function sendMail(event) {
       document.querySelector(".error-message").style.display = "block";
     });
 }
+ document.addEventListener("DOMContentLoaded", function () {
+    const data = {
+      cheapo: {
+        category: "Logo design",
+        client: "Cheapo Shopping",
+        url: "https://drive.google.com/drive/folders/10aZtvvglNKrGahgHnk3WkLx0IIC1-DMB",
+        title: "Cheapo Logo Project",
+        description: "Creative logo design for Cheapo Shopping to enhance brand visibility.",
+        images: [
+          "assets/img/portfolio-details/cheapo/logo-3.jpg",
+          "assets/img/portfolio-details/cheapo/logo-4.jpg"
+        ]
+      },
+      workwave: {
+        category: "Logo design",
+        client: "Workwave",
+        url: "#",
+        title: "Workwave Identity Design",
+        description: "A branding identity for Workwave. Clean, modern, and impactful.",
+        images: [
+          "assets/img/portfolio-details/workware/WorkWave.png",
+          "assets/img/portfolio-details/workware/logo-1.png",
+          "assets/img/portfolio-details/workware/workwave 2.png"
+        ]
+      },
+      chitra: {
+        category: "Logo design",
+        client: "Chitra Holidays",
+        url: "#",
+        title: "Chirta Holiday – Visual Identity & Logo Creation",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+        images: [
+          "assets/img/portfolio-details/workware/WorkWave.png",
+          "assets/img/portfolio-details/workware/logo-1.png",
+          "assets/img/portfolio-details/workware/workwave 2.png"
+        ]
+      },
+      farmer: {
+        category: "UI /UX  design",
+        client: "Farmer 360",
+        url: "#",
+        title: "Farmer 360",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+        images: [
+          "",
+          "",
+          ""
+        ]
+      },
+      printme: {
+        category: "UI /UX  design",
+        client: "Print Me ",
+        url: "#",
+        title: "PrintMe",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+        images: [
+          "assets/img/portfolio-details/printme/1.png",
+          "assets/img/portfolio-details/printme/2.png",
+          "assets/img/portfolio-details/printme/3.png",
+          "assets/img/portfolio-details/printme/4.png",
+          "assets/img/portfolio-details/printme/5.png",
+          "assets/img/portfolio-details/printme/6.png",
+          "assets/img/portfolio-details/printme/7.png",
+          "assets/img/portfolio-details/printme/8.png",
+          "assets/img/portfolio-details/printme/9.png",
+          "assets/img/portfolio-details/printme/10.png",
+        ]
+      },
+      expomate: {
+        category: "UI /UX  design",
+        client: "ExpoMate",
+        url: "#",
+        title: "ExpoMate",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+        images: [
+          "assets/img/portfolio-details/expomate/1.png",
+          "assets/img/portfolio-details/expomate/2.png",
+          "assets/img/portfolio-details/expomate/3.png",
+          "assets/img/portfolio-details/expomate/4.png",
+          "assets/img/portfolio-details/expomate/5.png",
+          "assets/img/portfolio-details/expomate/6.png",
+          "assets/img/portfolio-details/expomate/7.png",
+          "assets/img/portfolio-details/expomate/8.png",
+          "assets/img/portfolio-details/expomate/9.png",
+          "assets/img/portfolio-details/expomate/10.png",
+          "assets/img/portfolio-details/expomate/11.png",
+        ]
+      },
+      media: {
+        category: "Social Media Post",
+        client: "Mumbai Cutting Chai",
+        url: "#",
+        title: "Mumbai Cutting",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+        images: [
+          "assets/img/portfolio-details/media/post-1.jpeg",
+          "assets/img/portfolio-details/media/post-2.jpeg",
+          
+        ]
+      },
+      mumbai_poster: {
+        category: "Poster Design",
+        client: "Mumbai Cutting Chai",
+        url: "#",
+        title: "Mumbai Cutting",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+        images: [
+          "assets/img/portfolio-details/Mumbai cutting Poster/1.png",
+          "assets/img/portfolio-details/Mumbai cutting Poster/2.png",
+          "assets/img/portfolio-details/Mumbai cutting Poster/3.png",
+          "assets/img/portfolio-details/Mumbai cutting Poster/4.png",
+          
+        ]
+      },
+      
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const projectKey = params.get("project");
+
+    const project = data[projectKey];
+    if (!project) {
+      document.getElementById("portfolio-details").innerHTML = "<p>Project not found.</p>";
+      return;
+    }
+
+    document.getElementById("project-category").innerText = project.category;
+    document.getElementById("project-client").innerText = project.client;
+    document.getElementById("project-url").href = project.url;
+document.getElementById("project-url").innerText = "www.example.com";
+    document.getElementById("project-title").innerText = project.title;
+    document.getElementById("project-description").innerText = project.description;
+
+    const imageWrapper = document.getElementById("portfolio-images");
+    imageWrapper.innerHTML = project.images.map(src =>
+      `<div class="swiper-slide"><img src="${src}" alt="" class="img-fluid"/></div>`
+    ).join("");
+
+    // Initialize Swiper AFTER DOM is updated
+    new Swiper(".swiper", {
+      loop: true,
+      speed: 600,
+      autoplay: {
+        delay: 5000,
+      },
+      slidesPerView: 1,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  });
