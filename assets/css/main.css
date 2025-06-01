@@ -22,23 +22,54 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #012970; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #4154f1; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #7873f5; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #012970;  /* The default color of the main navmenu links */
-  --nav-hover-color: #4154f1; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #4154f1; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Nunito", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  --background-color: #ffffff;
+  --default-color: #444444;
+  --heading-color: #13044a; /* fallback solid from gradient start */
+  --accent-color: #8738ed; /* you asked for this color on buttons */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  /* Nav-specific */
+  --nav-color: #13044a;
+  --nav-hover-color: #8738ed;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #212529;
+  --nav-dropdown-hover-color: #8738ed;
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* Gradient effect only on headings */
+h1, h3,h4, h5, h6 {
+  color: var(--heading-color); /* fallback */
+  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
 
+/* Optional: Apply gradient on .heading-color class too */
+.heading-color {
+  color: var(--heading-color);
+  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Optional light and dark modes */
 .light-background {
   --background-color: #f9f9f9;
   --surface-color: #ffffff;
@@ -47,10 +78,11 @@
 .dark-background {
   --background-color: #060606;
   --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --heading-color: #ffffff; /* solid fallback in dark mode */
   --surface-color: #252525;
   --contrast-color: #ffffff;
 }
+
 
 /* Smooth scroll */
 :root {
@@ -505,7 +537,7 @@ h6 {
   font-size: 18px;
   font-weight: 600;
   color: #003366;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid #7873f5;
   padding-bottom: 6px;
   margin: 0 0 12px 0;
 }
@@ -528,7 +560,7 @@ h6 {
 }
 
 .column-wrapper ul li a:hover {
-  color: #007bff;
+  color: #7873f5;
 }
 
 
@@ -2141,7 +2173,7 @@ section,
 .design-section h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, #ff6ec4 0%, #7873f5 100%);
+  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -2238,11 +2270,11 @@ section,
 }
 
 
-.nav-gradient {
+/* .nav-gradient {
   height: 4px;
   background: linear-gradient(to right, #ff6ec4, #7873f5);
   width: 100%;
-}
+} */
 
 .service {
   margin-top: 80px;
@@ -2366,4 +2398,10 @@ section,
 .service-card .btn:hover {
   background-color: #7873f5;       /* Fill with blue on hover */
   color: #fff;                     /* White text on hover */
+}
+
+[data-aos] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;  /* This is the key */
 }

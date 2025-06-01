@@ -292,11 +292,9 @@ function sendMail(event) {
         url: "#",
         title: "Farmer 360",
         description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
-        images: [
-          "",
-          "",
-          ""
-        ]
+        images: Array.from({ length: 18 }, (_, i) => 
+      `assets/img/portfolio-details/farmer/${i + 1}.png`
+    )
       },
       printme: {
         category: "UI /UX  design",
@@ -304,18 +302,10 @@ function sendMail(event) {
         url: "#",
         title: "PrintMe",
         description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
-        images: [
-          "assets/img/portfolio-details/printme/1.png",
-          "assets/img/portfolio-details/printme/2.png",
-          "assets/img/portfolio-details/printme/3.png",
-          "assets/img/portfolio-details/printme/4.png",
-          "assets/img/portfolio-details/printme/5.png",
-          "assets/img/portfolio-details/printme/6.png",
-          "assets/img/portfolio-details/printme/7.png",
-          "assets/img/portfolio-details/printme/8.png",
-          "assets/img/portfolio-details/printme/9.png",
-          "assets/img/portfolio-details/printme/10.png",
-        ]
+       images: Array.from({ length: 10 }, (_, i) => 
+      `assets/img/portfolio-details/printme/${i + 1}.png`
+    )
+
       },
       expomate: {
         category: "UI /UX  design",
@@ -323,19 +313,10 @@ function sendMail(event) {
         url: "#",
         title: "ExpoMate",
         description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
-        images: [
-          "assets/img/portfolio-details/expomate/1.png",
-          "assets/img/portfolio-details/expomate/2.png",
-          "assets/img/portfolio-details/expomate/3.png",
-          "assets/img/portfolio-details/expomate/4.png",
-          "assets/img/portfolio-details/expomate/5.png",
-          "assets/img/portfolio-details/expomate/6.png",
-          "assets/img/portfolio-details/expomate/7.png",
-          "assets/img/portfolio-details/expomate/8.png",
-          "assets/img/portfolio-details/expomate/9.png",
-          "assets/img/portfolio-details/expomate/10.png",
-          "assets/img/portfolio-details/expomate/11.png",
-        ]
+        images: Array.from({ length: 11 }, (_, i) => 
+      `assets/img/portfolio-details/expomate/${i + 1}.png`
+    )
+       
       },
       media: {
         category: "Social Media Post",
@@ -363,6 +344,58 @@ function sendMail(event) {
           
         ]
       },
+      dahoo: {
+        category: "Poster Design",
+        client: "Dahoo",
+        url: "#",
+        title: "Dahoo",
+        description: "We designed a clean and modern logo for Chirta Holiday, a travel company focused on delivering unforgettable holiday experiences. The logo captures the spirit of adventure and relaxation, using vibrant colors and sleek typography to reflect the brand’s dynamic personality. The visual identity is crafted to be versatile across print and digital platforms, helping Chirta Holiday stand out in the competitive travel market.",
+         images: Array.from({ length: 2 }, (_, i) => 
+      `assets/img/portfolio-details/dahoo/${i + 1}.png`
+    )
+      },
+      farmerblockchain: {
+        category: "UI / UX ",
+        client: "Farmer 360",
+        url: "#",
+        title: "Farmer 360 – Empowering Agriculture Through Blockchain",
+        description: "Farmer 360 is a blockchain-powered solution designed to bring transparency, security, and efficiency to the agricultural supply chain. The platform allows farmers, distributors, and consumers to track the journey of agricultural products from seed to shelf with tamper-proof records. By leveraging blockchain technology, Farmer 360 ensures data integrity, improves trust among stakeholders, and reduces fraud or misinformation.",
+        
+        images: [
+          "assets/img/portfolio-details/farmer_360/Frame 6.png",
+          "assets/img/portfolio-details/farmer_360/Frame 7.png",
+          "assets/img/portfolio-details/farmer_360/Frame 8.png",
+          "assets/img/portfolio-details/farmer_360/Frame 9.png",
+          "assets/img/portfolio-details/farmer_360/Frame 10.png",
+          "assets/img/portfolio-details/farmer_360/Frame 11.png",
+          "assets/img/portfolio-details/farmer_360/Frame 12.png",
+          "assets/img/portfolio-details/farmer_360/Frame 13.png",
+          
+        ]
+      },
+      fruite: {
+        category: "UI / UX ",
+        client: "Lavanya's",
+        url: "#",
+        title: "Lavanya's Menu",
+        description: "We designed a sophisticated and easy-to-navigate menu for Lavanya’s, blending traditional charm with modern aesthetics. The layout highlights the brand’s rich culinary offerings, using elegant typography and a warm color palette to enhance the overall dining experience.",
+        
+        images: [
+          "assets/img/portfolio-details/fruite/poster-1.jpg",
+         
+          
+        ]
+      },
+      tiles: {
+        category: "Branding",
+        client: "Nexces Granito",
+        url: "#",
+        title: "Nexces Granito – Premium Tiles Branding",
+        description: "We created a bold and professional branding identity for Nexces Granito, a premium tiles business. Our visuals showcase the elegance and durability of their products through high-quality imagery and modern design, helping the brand make a strong impression in the competitive tiles market.",
+        images: Array.from({ length: 10 }, (_, i) => 
+      `assets/img/portfolio-details/tiles/${i + 1}.jpg`
+    )
+      },
       
     };
 
@@ -378,7 +411,7 @@ function sendMail(event) {
     document.getElementById("project-category").innerText = project.category;
     document.getElementById("project-client").innerText = project.client;
     document.getElementById("project-url").href = project.url;
-document.getElementById("project-url").innerText = "www.example.com";
+    document.getElementById("project-url").innerText = "www.example.com";
     document.getElementById("project-title").innerText = project.title;
     document.getElementById("project-description").innerText = project.description;
 
