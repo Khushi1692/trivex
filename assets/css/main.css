@@ -40,17 +40,17 @@
   --background-color: #ffffff;
   --default-color: #444444;
   --heading-color: #13044a; /* fallback solid from gradient start */
-  --accent-color: #8738ed; /* you asked for this color on buttons */
+  --accent-color: #5c5bd3; /* you asked for this color on buttons */
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
 
   /* Nav-specific */
   --nav-color: #13044a;
-  --nav-hover-color: #8738ed;
+  --nav-hover-color: #5c5bd3;
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #212529;
-  --nav-dropdown-hover-color: #8738ed;
+  --nav-dropdown-hover-color: #5c5bd3;
 }
 
 /* Gradient effect only on headings */
@@ -60,7 +60,7 @@ h4,
 h5,
 h6 {
   color: var(--heading-color); /* fallback */
-  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
+  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #5c5bd3 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -70,7 +70,7 @@ h6 {
 /* Optional: Apply gradient on .heading-color class too */
 .heading-color {
   color: var(--heading-color);
-  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
+  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #5c5bd3 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -367,41 +367,49 @@ h6 {
   .mobile-service{
     display: none;
   }
+  .mobile-nav-toggle {
+    display: none;
+  }
 }
 
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-
+  /* Navmenu Container */
   .navmenu {
     padding: 0;
     z-index: 9997;
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+    display: none;
   }
 
-  .navmenu ul {
+  .mobile-nav-active .navmenu {
+    display: block;
+  }
+
+  .navmenu > ul {
     display: none;
-    list-style: none;
     position: absolute;
     inset: 60px 20px 20px 20px;
-    padding: 10px 0;
     margin: 0;
+    padding: 10px 0;
+    list-style: none;
     border-radius: 6px;
     background-color: var(--nav-mobile-background-color);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    transition: 0.3s;
     z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
   }
 
-  .navmenu a,
-  .navmenu a:focus {
+  .mobile-nav-active .navmenu > ul {
+    display: block;
+  }
+
+  /* Nav links */
+  .navmenu a {
     color: var(--nav-dropdown-color);
     padding: 10px 20px;
     font-family: var(--nav-font);
@@ -414,10 +422,13 @@ h6 {
     transition: 0.3s;
   }
 
-  .navmenu a i,
-  .navmenu a:focus i {
+  .navmenu a:hover,
+  .navmenu .active {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu a i {
     font-size: 12px;
-    line-height: 0;
     margin-left: 5px;
     width: 30px;
     height: 30px;
@@ -425,88 +436,84 @@ h6 {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: 0.3s;
     background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    transition: 0.3s;
   }
 
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
+  .navmenu .active i {
     background-color: var(--accent-color);
     color: var(--contrast-color);
     transform: rotate(180deg);
   }
 
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .navmenu .dropdown > .dropdown-active {
+  /* Mobile Toggle Button */
+  .mobile-nav-toggle {
     display: block;
-    background-color: rgba(33, 37, 41, 0.03);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    z-index: 10000;
+    color: #fff;
+    cursor: pointer;
+    background: #5c5bd3;
   }
 
+  /* Hide body scroll when nav is active */
   .mobile-nav-active {
     overflow: hidden;
   }
 
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
+  /* Dropdowns (Desktop-style hidden in mobile) */
+  .navmenu .dropdown,
+  .service-dropdown {
+    display: none !important;
   }
 
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu > ul {
-    display: block;
-  }
-
-  .service-dropdown.dropdown-active {
-    visibility: visible;
-  }
-
-  .mobile-service{
+  /* Mobile Services Menu */
+  .mobile-service {
     display: none;
   }
-  .mobile-service.show{
+
+  .mobile-service.show {
     display: block;
     padding-left: 15px;
   }
+
+  .mobile-service .toggle-submenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mobile-submenu {
+    display: none;
+    padding-left: 30px;
+  }
+
+  .mobile-service.active .mobile-submenu {
+    display: block;
+  }
+
+  .mobile-submenu li {
+    margin: 8px 0;
+  }
+
+  .mobile-submenu li a {
+    font-size: 16px;
+    color: var(--nav-dropdown-color);
+    text-decoration: none;
+  }
+
+  .mobile-submenu li a:hover {
+    color: var(--nav-dropdown-hover-color);
+  }
+  .navmenu li {
+  list-style: none;
 }
+}
+
 
 /* Dropdown layout */
 .service-dropdown {
@@ -1057,40 +1064,6 @@ section,
 .about .content .btn-read-more:hover i {
   transform: translateX(5px);
 }
-
-/*--------------------------------------------------------------
-# Values Section
---------------------------------------------------------------*/
-/* .values .card {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  padding: 30px;
-  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: 0.3s;
-  height: 100%;
-  border: 0;
-}
-
-.values .card img {
-  padding: 30px 50px;
-  transition: 0.5s;
-  transform: scale(1.1);
-}
-
-.values .card h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.values .card:hover {
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
-}
-
-.values .card:hover img {
-  transform: scale(1);
-} */
 
 /*--------------------------------------------------------------
 # Stats Section

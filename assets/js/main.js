@@ -46,13 +46,20 @@
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll("#navmenu a").forEach((navmenu) => {
-    navmenu.addEventListener("click", () => {
+  document.querySelectorAll("#navmenu a").forEach((navLink) => {
+  navLink.addEventListener("click", (e) => {
+    const isSubmenuToggle = navLink.classList.contains("toggle-submenu");
+    const href = navLink.getAttribute("href");
+
+    // Only toggle mobile nav if it's not a submenu toggle and has a valid href
+    if (!isSubmenuToggle && href && href !== "#") {
       if (document.querySelector(".mobile-nav-active")) {
         mobileNavToogle();
       }
-    });
+    }
   });
+});
+
 
   /**
    * Toggle mobile nav dropdowns
@@ -68,6 +75,24 @@
       e.stopImmediatePropagation();
     });
   });
+ document.querySelectorAll('.mobile-service .toggle-submenu').forEach(toggle => {
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    const parent = this.closest('.mobile-service');
+
+    // Toggle current submenu
+    const isActive = parent.classList.contains('active');
+    parent.classList.toggle('active');
+
+    // Close all other submenus
+    document.querySelectorAll('.mobile-service').forEach(item => {
+      if (item !== parent) {
+        item.classList.remove('active');
+      }
+    });
+  });
+});
+
 
   /**
    * Scroll top button
