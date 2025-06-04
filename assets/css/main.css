@@ -12,13 +12,15 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Nunito",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Nunito", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #012970; /* Color for headings, subheadings and title throughout the website */
@@ -29,7 +31,9 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Nunito", sans-serif;
   --nav-font: "Poppins", sans-serif;
 
@@ -50,7 +54,11 @@
 }
 
 /* Gradient effect only on headings */
-h1, h3,h4, h5, h6 {
+h1,
+h3,
+h4,
+h5,
+h6 {
   color: var(--heading-color); /* fallback */
   background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
   -webkit-background-clip: text;
@@ -82,7 +90,6 @@ h1, h3,h4, h5, h6 {
   --surface-color: #252525;
   --contrast-color: #ffffff;
 }
-
 
 /* Smooth scroll */
 :root {
@@ -121,7 +128,7 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
- .error-message {
+.error-message {
   display: none;
   background: #df1529;
   color: #ffffff;
@@ -131,7 +138,7 @@ h6 {
   font-weight: 600;
 }
 
- .sent-message {
+.sent-message {
   display: none;
   color: #ffffff;
   background: #059652;
@@ -141,7 +148,7 @@ h6 {
   font-weight: 600;
 }
 
- .loading {
+.loading {
   display: none;
   background: var(--surface-color);
   text-align: center;
@@ -149,7 +156,7 @@ h6 {
   margin-bottom: 24px;
 }
 
- .loading:before {
+.loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -295,7 +302,7 @@ h6 {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -334,11 +341,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -350,11 +357,15 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;
     visibility: visible;
+  }
+
+  .mobile-service{
+    display: none;
   }
 }
 
@@ -453,7 +464,7 @@ h6 {
     background-color: rgba(33, 37, 41, 0.1);
   }
 
-  .navmenu .dropdown>.dropdown-active {
+  .navmenu .dropdown > .dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
@@ -480,11 +491,22 @@ h6 {
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
-}
 
+  .service-dropdown.dropdown-active {
+    visibility: visible;
+  }
+
+  .mobile-service{
+    display: none;
+  }
+  .mobile-service.show{
+    display: block;
+    padding-left: 15px;
+  }
+}
 
 /* Dropdown layout */
 .service-dropdown {
@@ -563,7 +585,6 @@ h6 {
   color: #7873f5;
 }
 
-
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -578,7 +599,8 @@ h6 {
 .footer .footer-newsletter {
   background-color: color-mix(in srgb, var(--accent-color), transparent 97%);
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--accent-color), transparent 85%);
   padding: 50px 0;
 }
 
@@ -591,7 +613,11 @@ h6 {
   margin-bottom: 15px;
   padding: 6px 8px;
   position: relative;
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 50%
+  );
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -603,19 +629,23 @@ h6 {
   border-color: var(--accent-color);
 }
 
-.footer .footer-newsletter .newsletter-form input[type=email] {
+.footer .footer-newsletter .newsletter-form input[type="email"] {
   border: 0;
   padding: 4px;
   width: 100%;
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 50%
+  );
   color: var(--default-color);
 }
 
-.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
+.footer .footer-newsletter .newsletter-form input[type="email"]:focus-visible {
   outline: none;
 }
 
-.footer .footer-newsletter .newsletter-form input[type=submit] {
+.footer .footer-newsletter .newsletter-form input[type="submit"] {
   border: 0;
   font-size: 16px;
   padding: 0 20px;
@@ -626,7 +656,7 @@ h6 {
   border-radius: 0 4px 4px 0;
 }
 
-.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
+.footer .footer-newsletter .newsletter-form input[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
@@ -712,7 +742,8 @@ h6 {
 .footer .copyright {
   padding-top: 25px;
   padding-bottom: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .footer .copyright p {
@@ -777,7 +808,8 @@ h6 {
 
 .page-title .heading {
   padding: 80px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .page-title .heading h1 {
@@ -799,11 +831,11 @@ h6 {
   font-weight: 600;
 }
 
-.page-title nav ol li+li {
+.page-title nav ol li + li {
   padding-left: 10px;
 }
 
-.page-title nav ol li+li::before {
+.page-title nav ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -823,7 +855,6 @@ section,
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 56px;
@@ -1250,7 +1281,6 @@ section,
 # Pricing Section
 --------------------------------------------------------------*/
 
-
 .pricing-center {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -1308,7 +1338,7 @@ section,
 }
 
 .pricing ul {
-  list-style: none;           /* Remove default bullets */
+  list-style: none; /* Remove default bullets */
   padding-left: 0;
   text-align: left;
   margin-bottom: 25px;
@@ -1316,20 +1346,18 @@ section,
 
 .pricing ul li {
   position: relative;
-  padding-left: 24px;         /* Space for the tick */
+  padding-left: 24px; /* Space for the tick */
   margin-bottom: 10px;
 }
 
 .pricing ul li::before {
-  content: "✔";               /* Right tick symbol */
+  content: "✔"; /* Right tick symbol */
   position: absolute;
   left: 0;
   top: 0;
-  color: #00F0FF;             /* Accent color (you can change this) */
+  color: #00f0ff; /* Accent color (you can change this) */
   font-weight: bold;
 }
-
-
 
 .pricing ul .na {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
@@ -1367,7 +1395,6 @@ section,
   background: var(--accent-color);
   color: var(--contrast-color);
 }
-
 
 /*--------------------------------------------------------------
 # Portfolio Section
@@ -1575,7 +1602,6 @@ section,
   }
 }
 
-
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
@@ -1641,31 +1667,35 @@ section,
   height: 100%;
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 50%
+  );
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type="text"]::placeholder,
+.contact .php-email-form input[type="email"]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: var(--accent-color);
   color: var(--contrast-color);
   border: 0;
@@ -1674,7 +1704,7 @@ section,
   border-radius: 4px;
 }
 
-.contact button[type=submit]:hover {
+.contact button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
@@ -1683,7 +1713,7 @@ section,
 --------------------------------------------------------------*/
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
-  height: 500px; 
+  height: 500px;
   object-fit: contain;
 }
 
@@ -1692,14 +1722,20 @@ section,
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: color-mix(in srgb, var(--default-color), transparent 85%);
   opacity: 1;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
 }
 
@@ -1714,7 +1750,8 @@ section,
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .portfolio-details .portfolio-info ul {
@@ -1723,7 +1760,7 @@ section,
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li+li {
+.portfolio-details .portfolio-info ul li + li {
   margin-top: 10px;
 }
 
@@ -1768,14 +1805,15 @@ section,
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-.service-details .service-box+.service-box {
+.service-details .service-box + .service-box {
   margin-top: 30px;
 }
 
 .service-details .service-box h4 {
   font-size: 20px;
   font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--default-color), transparent 92%);
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
@@ -1824,7 +1862,8 @@ section,
   align-items: center;
   padding: 10px 0;
   transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .service-details .download-catalog a:first-child {
@@ -2008,7 +2047,7 @@ section,
   transition: 0.3s;
 }
 
-.search-widget form input[type=text] {
+.search-widget form input[type="text"] {
   border: 0;
   padding: 4px;
   border-radius: 4px;
@@ -2017,7 +2056,7 @@ section,
   color: var(--default-color);
 }
 
-.search-widget form input[type=text]:focus {
+.search-widget form input[type="text"]:focus {
   outline: none;
 }
 
@@ -2155,7 +2194,7 @@ section,
   padding: 60px 20px;
   max-width: 1100px;
   margin: auto;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease;
@@ -2194,7 +2233,7 @@ section,
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .design-section:nth-of-type(even) {
@@ -2208,7 +2247,7 @@ section,
   padding: 20px;
   margin-top: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   max-width: 350px;
 }
 
@@ -2269,7 +2308,6 @@ section,
   background: #5c5bd3;
 }
 
-
 /* .nav-gradient {
   height: 4px;
   background: linear-gradient(to right, #ff6ec4, #7873f5);
@@ -2282,7 +2320,7 @@ section,
   padding: 80px 20px;
   text-align: center;
   background-color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 .service-subtitle {
@@ -2292,7 +2330,6 @@ section,
   letter-spacing: 1.5px;
   margin-bottom: 20px;
 }
-
 
 .service-description {
   font-size: 18px;
@@ -2362,13 +2399,12 @@ section,
   font-size: 40px;
   margin-bottom: 30px;
   margin-top: 40px;
- 
 }
 
 .service-title {
   /* font-size: 60px;
   font-weight: 600; */
-   font-size: 40px; 
+  font-size: 40px;
   font-weight: 800;
   margin-bottom: 10px;
 }
@@ -2387,8 +2423,8 @@ section,
 }
 
 .service-card .btn {
-  border: 2px solid #7873f5;       /* Blue border */
-  color: #7873f5;                  /* Text color matches border */
+  border: 2px solid #7873f5; /* Blue border */
+  color: #7873f5; /* Text color matches border */
   border-radius: 20px;
   padding: 8px 20px;
   transition: background-color 0.3s, color 0.3s;
@@ -2396,8 +2432,8 @@ section,
 }
 
 .service-card .btn:hover {
-  background-color: #7873f5;       /* Fill with blue on hover */
-  color: #fff;                     /* White text on hover */
+  background-color: #7873f5; /* Fill with blue on hover */
+  color: #fff; /* White text on hover */
 }
 [data-aos] {
   opacity: 1 !important;
