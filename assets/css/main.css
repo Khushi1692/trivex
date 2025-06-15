@@ -12,83 +12,71 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Nunito", sans-serif;
-  --nav-font: "Poppins", sans-serif;
+  --default-font: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --heading-font: "Helvetica Neue", sans-serif;
+  --nav-font: "DM Sans", "Poppins", sans-serif;
 }
+
+
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #012970; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #7873f5; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ffffff;        /* Light, clean background */
+  --default-color: #2b2b2b;           /* Soft charcoal text color */
+  --heading-color: #2b2b2b;           /* Headings also use this tone */
+  --accent-color: #482e89;            /* Deep blue for links, buttons, CTAs */
+  --surface-color: #ffffff;           /* Cards or boxes - keep clean white */
+  --contrast-color: #ffffff;          /* For text on dark buttons if needed */
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Navigation Menu - consistent with overall theme */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Nunito", sans-serif;
-  --nav-font: "Poppins", sans-serif;
-
-  --background-color: #ffffff;
-  --default-color: #444444;
-  --heading-color: #13044a; /* fallback solid from gradient start */
-  --accent-color: #5c5bd3; /* you asked for this color on buttons */
-  --surface-color: #ffffff;
-  --contrast-color: #ffffff;
-
-  /* Nav-specific */
-  --nav-color: #13044a;
-  --nav-hover-color: #5c5bd3;
+  --nav-color: #2b2b2b;
+  --nav-hover-color: #482e89;
+  
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #ffffff;
-  --nav-dropdown-color: #212529;
-  --nav-dropdown-hover-color: #5c5bd3;
+  --nav-dropdown-color: #2b2b2b;
+  --nav-dropdown-hover-color: #482e89;
 }
 
-/* Gradient effect only on headings */
+/* Headings - no gradient, clean dark look */
 h1,
 h3,
 h4,
 h5,
 h6 {
-  color: var(--heading-color); /* fallback */
-  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #5c5bd3 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  color: var(--heading-color);
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  text-fill-color: initial;
 }
 
-/* Optional: Apply gradient on .heading-color class too */
+/* Optional: for elements using .heading-color */
 .heading-color {
   color: var(--heading-color);
-  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #5c5bd3 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  text-fill-color: initial;
 }
 
-/* Optional light and dark modes */
+/* Light background mode (default) */
 .light-background {
-  --background-color: #f9f9f9;
+  --background-color: #f3f0ff;
   --surface-color: #ffffff;
 }
 
+/* Dark background mode (optional) */
 .dark-background {
-  --background-color: #060606;
+  --background-color: #2b2b2b;
   --default-color: #ffffff;
-  --heading-color: #ffffff; /* solid fallback in dark mode */
-  --surface-color: #252525;
-  --contrast-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #3a3a3a;
+  --contrast-color: #000000;
 }
 
 /* Smooth scroll */
@@ -289,6 +277,7 @@ h6 {
     white-space: nowrap;
     transition: 0.3s;
   }
+  
 
   .navmenu a i,
   .navmenu a:focus i {
@@ -303,9 +292,10 @@ h6 {
   }
 
   .navmenu li:hover > a,
-  .navmenu .active,
+  .navmenu ,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
+    font-weight: bold;
   }
 
   .navmenu .dropdown ul {
@@ -454,9 +444,9 @@ h6 {
     right: 20px;
     font-size: 32px;
     z-index: 10000;
-    color: #fff;
+    /* color: #fff; */
     cursor: pointer;
-    background: #5c5bd3;
+    color:#482e89;
   }
 
   /* Hide body scroll when nav is active */
@@ -565,8 +555,8 @@ h6 {
 .column-wrapper h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #003366;
-  border-bottom: 2px solid #7873f5;
+  color: #482e89;
+  border-bottom: 2px solid #a181e2;
   padding-bottom: 6px;
   margin: 0 0 12px 0;
 }
@@ -589,7 +579,7 @@ h6 {
 }
 
 .column-wrapper ul li a:hover {
-  color: #7873f5;
+  color: #a181e2;
 }
 
 /*--------------------------------------------------------------
@@ -603,7 +593,7 @@ h6 {
   position: relative;
 }
 
-.footer .footer-newsletter {
+/* .footer .footer-newsletter {
   background-color: color-mix(in srgb, var(--accent-color), transparent 97%);
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
   border-bottom: 1px solid
@@ -665,7 +655,7 @@ h6 {
 
 .footer .footer-newsletter .newsletter-form input[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
+} */
 
 .footer .footer-top {
   padding-top: 50px;
@@ -807,7 +797,7 @@ h6 {
 /*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
-.page-title {
+/* .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
   position: relative;
@@ -847,7 +837,7 @@ h6 {
   display: inline-block;
   padding-right: 10px;
   color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
+} */
 
 /*--------------------------------------------------------------
 # Global Sections
@@ -883,7 +873,7 @@ section,
   font-weight: 700;
   padding: 8px 20px;
   margin: 0;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  background:#f0f4ff;
   color: var(--accent-color);
   display: inline-block;
   text-transform: uppercase;
@@ -920,7 +910,7 @@ section,
 .hero h1 {
   margin: 0;
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 750;
   line-height: 56px;
 }
 
@@ -962,30 +952,6 @@ section,
 .hero .btn-get-started:hover i {
   transform: translateX(5px);
 }
-
-.hero .btn-watch-video {
-  font-size: 16px;
-  transition: 0.5s;
-  color: var(--default-color);
-  font-weight: 600;
-}
-
-.hero .btn-watch-video i {
-  color: var(--accent-color);
-  font-size: 32px;
-  transition: 0.3s;
-  line-height: 0;
-  margin-right: 8px;
-}
-
-.hero .btn-watch-video:hover {
-  color: var(--accent-color);
-}
-
-.hero .btn-watch-video:hover i {
-  color: color-mix(in srgb, var(--accent-color), transparent 15%);
-}
-
 .hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
@@ -1137,113 +1103,38 @@ section,
   margin-left: 5px;
   font-size: 18px;
 }
-
-.services .service-item.item-cyan {
-  border-bottom: 3px solid #0dcaf0;
+/* Common Styles for all .service-item variants */
+.services .service-item {
+  transition: all 0.3s ease;
 }
 
-.services .service-item.item-cyan .icon {
-  color: #0dcaf0;
-  background: rgba(13, 202, 240, 0.1);
-}
-
-.services .service-item.item-cyan .read-more {
-  color: #0dcaf0;
-}
-
-.services .service-item.item-cyan:hover {
-  background: #0dcaf0;
-}
-
-.services .service-item.item-orange {
-  border-bottom: 3px solid #fd7e14;
-}
-
-.services .service-item.item-orange .icon {
-  color: #fd7e14;
-  background: rgba(253, 126, 20, 0.1);
-}
-
-.services .service-item.item-orange .read-more {
-  color: #fd7e14;
-}
-
-.services .service-item.item-orange:hover {
-  background: #fd7e14;
-}
-
-.services .service-item.item-teal {
-  border-bottom: 3px solid #20c997;
-}
-
-.services .service-item.item-teal .icon {
-  color: #20c997;
-  background: rgba(32, 201, 151, 0.1);
-}
-
-.services .service-item.item-teal .read-more {
-  color: #20c997;
-}
-
-.services .service-item.item-teal:hover {
-  background: #20c997;
-}
-
-.services .service-item.item-red {
-  border-bottom: 3px solid #df1529;
-}
-
-.services .service-item.item-red .icon {
-  color: #df1529;
-  background: rgba(223, 21, 4, 0.1);
-}
-
-.services .service-item.item-red .read-more {
-  color: #df1529;
-}
-
-.services .service-item.item-red:hover {
-  background: #df1529;
-}
-
-.services .service-item.item-indigo {
-  border-bottom: 3px solid #6610f2;
-}
-
-.services .service-item.item-indigo .icon {
-  color: #6610f2;
-  background: rgba(102, 16, 242, 0.1);
-}
-
-.services .service-item.item-indigo .read-more {
-  color: #6610f2;
-}
-
-.services .service-item.item-indigo:hover {
-  background: #6610f2;
-}
-
-.services .service-item.item-pink {
-  border-bottom: 3px solid #f3268c;
-}
-
-.services .service-item.item-pink .icon {
-  color: #f3268c;
-  background: rgba(243, 38, 140, 0.1);
-}
-
-.services .service-item.item-pink .read-more {
-  color: #f3268c;
-}
-
-.services .service-item.item-pink:hover {
-  background: #f3268c;
-}
-
-.services .service-item:hover h3,
-.services .service-item:hover p,
-.services .service-item:hover .read-more {
+.services .service-item .icon {
   color: #fff;
+  background: #a181e2;
+  transition: all 0.3s ease;
+}
+
+.services .service-item:hover .icon {
+  color: #a181e2;
+  background: #fff;
+}
+
+.services .service-item .read-more {
+  color: #a181e2;
+}
+
+.services .service-item .read-more:hover {
+  color: #a181e2;
+}
+
+.services .service-item:hover {
+  background: #f0f4ff;
+}
+
+/* Variant Borders */
+.services .service-item,
+.services .service-item {
+  border-bottom: 3px solid #a181e2;
 }
 
 .services .service-item:hover .icon {
@@ -1265,9 +1156,16 @@ section,
   text-align: center;
   border-radius: 4px;
   position: relative;
-  overflow: hidden;
   transition: 0.3s;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; 
+}
+
+
+.pricing-tem ul {
+  flex-grow: 1; /* Takes up available space */
 }
 
 @media (min-width: 1200px) {
@@ -1291,8 +1189,8 @@ section,
 }
 
 .pricing .price sup {
-  font-size: 20px;
-  top: -15px;
+  font-size: 30px;
+  top: -0.9px;
   left: -3px;
 }
 
@@ -1328,7 +1226,6 @@ section,
   position: absolute;
   left: 0;
   top: 0;
-  color: #00f0ff; /* Accent color (you can change this) */
   font-weight: bold;
 }
 
@@ -1352,19 +1249,6 @@ section,
 }
 
 .pricing .btn-buy:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.pricing .featured {
-  width: 200px;
-  position: absolute;
-  top: 18px;
-  right: -68px;
-  transform: rotate(45deg);
-  z-index: 1;
-  font-size: 14px;
-  padding: 1px 0 3px 0;
   background: var(--accent-color);
   color: var(--contrast-color);
 }
@@ -1724,7 +1608,7 @@ section,
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid
-    color-mix(in srgb, var(--default-color), transparent 85%);
+  color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
 .portfolio-details .portfolio-info ul {
@@ -2161,6 +2045,72 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+@media (max-width: 1199px) {
+  .text-wrapper {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+  .design-section {
+    margin: 10px !important;
+    padding: 40px 15px;
+   
+    text-align: center;
+  }
+
+  .design-section h2 {
+    font-size: 2rem;
+  }
+
+  .design-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .design-section .animation,
+  .design-section .image {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .design-section lottie-player,
+  .design-section img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .pricing-box {
+    max-width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .pricing-box h3 {
+    font-size: 1.25rem;
+  }
+
+  .pricing-box ul li {
+    font-size: 0.95rem;
+  }
+
+  .heading-with-button {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 12px;
+  }
+
+  .heading-with-button h2 {
+    font-size: 1.75rem;
+  }
+
+  .btn-pricing {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+}
 
 /* service  */
 .design-section {
@@ -2183,11 +2133,10 @@ section,
 }
 
 .design-section h2 {
-  font-size: 2.5rem;
+  font-size: 5rem;
   margin-bottom: 20px;
-  background: linear-gradient(to right, #13044a 2%, #3b168f 25%, #8738ed 90%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color:#482e89;
+  font-weight: bolder;
 }
 
 .design-section p {
@@ -2210,6 +2159,8 @@ section,
 }
 
 .design-section:nth-of-type(even) {
+  /* margin: 10px; */
+  margin: auto;
   flex-direction: row-reverse;
   background: #f0f4ff;
   border-radius: 20px;
@@ -2268,7 +2219,7 @@ section,
 
 .btn-pricing {
   display: inline-block;
-  background: #7873f5;
+  background: #482e89;
   color: #fff;
   padding: 10px 20px;
   border-radius: 8px;
@@ -2278,7 +2229,8 @@ section,
 }
 
 .btn-pricing:hover {
-  background: #5c5bd3;
+  background: #482e89;
+  color:#fff;
 }
 
 /* .nav-gradient {
@@ -2330,23 +2282,24 @@ section,
 }
 
 .btn.primary {
-  background-color: #5c5bd3;
+  background-color: #482e89;
   color: #fff;
-  border-color: #5c5bd3;
+  border-color: #482e89;
 }
 
 .btn.primary:hover {
-  background-color: #5c5bd3;
+  background-color: #482e89;
+  color:#fff
 }
 
 .btn.secondary {
   background-color: #fff;
-  color: #5c5bd3;
+  color: #482e89;
   border: 1px solid #ccc;
 }
 
 .btn.secondary:hover {
-  border-color: #5c5bd3;
+  border-color: #482e89;
 }
 
 .service-card {
@@ -2396,8 +2349,8 @@ section,
 }
 
 .service-card .btn {
-  border: 2px solid #7873f5; /* Blue border */
-  color: #7873f5; /* Text color matches border */
+  border: 2px solid #482e89; /* Blue border */
+  color: #482e89; /* Text color matches border */
   border-radius: 20px;
   padding: 8px 20px;
   transition: background-color 0.3s, color 0.3s;
@@ -2405,7 +2358,7 @@ section,
 }
 
 .service-card .btn:hover {
-  background-color: #7873f5; /* Fill with blue on hover */
+  background-color: #482e89; /* Fill with blue on hover */
   color: #fff; /* White text on hover */
 }
 [data-aos] {
