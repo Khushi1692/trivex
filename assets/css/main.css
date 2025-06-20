@@ -267,7 +267,7 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
-    padding: 18px 12px;
+    padding: 0px 12px;
     font-size: 15px;
     font-family: var(--nav-font);
     font-weight: 500;
@@ -568,6 +568,7 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-start;
 }
 
 .column-wrapper ul li a {
@@ -579,7 +580,7 @@ h6 {
 }
 
 .column-wrapper ul li a:hover {
-  color: #a181e2;
+  color: #482e89;
 }
 
 /*--------------------------------------------------------------
@@ -1064,6 +1065,8 @@ section,
 # Services Section
 --------------------------------------------------------------*/
 .services .service-item {
+  /* position: relative;
+  min-height: 400px;  */
   background-color: var(--surface-color);
   box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
   height: 100%;
@@ -1090,12 +1093,15 @@ section,
 }
 
 .services .service-item .read-more {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
   font-weight: 600;
   font-size: 16px;
-  padding: 8px 20px;
+  color: #a181e2;
+  text-decoration: none;
 }
 
 .services .service-item .read-more i {
@@ -1656,7 +1662,7 @@ section,
 /*--------------------------------------------------------------
 # Service Details Section
 --------------------------------------------------------------*/
-.service-details .service-box {
+/* .service-details .service-box {
   background-color: var(--surface-color);
   padding: 20px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
@@ -1787,7 +1793,7 @@ section,
   font-size: 20px;
   margin-right: 8px;
   color: var(--accent-color);
-}
+} */
 
 /*--------------------------------------------------------------
 # Comment Form Section
