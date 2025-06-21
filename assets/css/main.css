@@ -292,7 +292,7 @@ h6 {
   }
 
   .navmenu li:hover > a,
-  .navmenu ,
+  .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
     font-weight: bold;
@@ -1398,11 +1398,12 @@ section,
 
 .testimonials .testimonial-item .testimonial-img {
   width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 4px solid var(--background-color);
+  object-fit: contain;
+  background-color: #fff; /* or your section background */
   margin: 0 auto;
 }
-
 .testimonials .testimonial-item h3 {
   font-size: 18px;
   font-weight: bold;
@@ -2083,8 +2084,9 @@ section,
 
   .design-section lottie-player,
   .design-section img {
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
+    height: auto;
   }
 
   .pricing-box {
@@ -2120,6 +2122,10 @@ section,
 
 /* service  */
 .design-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
   padding: 60px 20px;
   max-width: 1100px;
   margin: auto;
@@ -2127,17 +2133,15 @@ section,
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: center;
 }
 
 .design-section.active {
   opacity: 1;
   transform: translateY(0);
 }
-
+.design-section .text {
+  max-width: 100%;
+}
 .design-section h2 {
   font-size: 5rem;
   margin-bottom: 20px;
@@ -2151,26 +2155,35 @@ section,
   max-width: 600px;
 }
 
-.design-section .animation,
-.design-section .image {
-  flex: 1 1 300px;
+.design-section .animation {
+  width: 100%;
+  max-width: 500px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.design-section lottie-player,
-.design-section img {
+.design-section .animation img {
   width: 100%;
-  max-width: 400px;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .design-section:nth-of-type(even) {
-  /* margin: 10px; */
-  margin: auto;
-  flex-direction: row-reverse;
-  background: #f0f4ff;
+  direction: rtl; 
+  /* background: #f0f4ff; */
   border-radius: 20px;
+  margin: auto;
 }
+
+.design-section:nth-of-type(even) .text,
+.design-section:nth-of-type(even) .animation {
+  direction: ltr; 
+}
+
 .pricing-box {
   background: #fff;
   border: 2px solid #ececec;
@@ -2247,7 +2260,6 @@ section,
 
 .service {
   margin-top: 80px;
-
   padding: 80px 20px;
   text-align: center;
   background-color: #fff;
@@ -2372,4 +2384,14 @@ section,
   visibility: visible !important;
   transform: none !important;
   transition: none !important;
+}
+.services-section .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.services-section .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
 }

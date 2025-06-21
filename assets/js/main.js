@@ -501,6 +501,42 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// active navbar
+ const currentURL = window.location.href;
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+
+// Remove all previously active classes
+document.querySelectorAll(".navmenu a").forEach(link => link.classList.remove("active"));
+
+// Loop through all nav links
+document.querySelectorAll(".navmenu a").forEach(link => {
+  const href = link.getAttribute("href");
+  if (!href) return;
+
+  const hrefFile = href.split("#")[0].split("/").pop();
+
+  // Case 1: HOME should only be active on homepage
+  if (href === "#hero" && (currentPath === "index.html" || currentPath === "")) {
+    link.classList.add("active");
+    return;
+  }
+
+  // Case 2: Check if href points to service.html (with or without hash)
+  if (href.includes("service.html") && currentPath === "service.html") {
+    // Add active to the parent dropdown only once
+    const parentDropdown = document.querySelector(".listing-dropdown > a");
+    if (parentDropdown) parentDropdown.classList.add("active");
+    return;
+  }
+
+  // Case 3: Portfolio should be active for both portfolio.html and portfolio-details.html
+  if (
+    (hrefFile === "portfolio.html" && currentPath === "portfolio-details.html") ||
+    (hrefFile === currentPath && hrefFile !== "service.html")
+  ) {
+    link.classList.add("active");
+  }
+});
 
 
 
