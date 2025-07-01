@@ -2323,7 +2323,7 @@ section,
 .service-card {
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 30px 20px;
+  padding: 20px 20px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -2333,6 +2333,7 @@ section,
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
+  margin-top: 10px;
   
 }
 
